@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Línea de tiempo: educación, aprendizaje y roles docente y estudiantil en México · Eliseo Anaya Dorantes</title>
+<meta name="description" content="Actividad 1 – Línea de tiempo. Evolución de los conceptos de educación, aprendizaje y de los roles del docente y del estudiante en México, de la Edad Antigua a la Edad Contemporánea.">
+<style>
+:root{
+  --bg:#faf8f4; --ink:#23201c; --muted:#5e574d; --line:#d9d2c5; --card:#ffffff;
+  --serif:Georgia,"Times New Roman",Times,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:17px}
+img{max-width:100%;display:block}
+a{color:#0b5d8a}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;margin:0 0 .4em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid #1a73e8;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Navegación ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,244,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:54px;flex-wrap:wrap}
+.nav b{font-family:var(--serif);font-size:1rem}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav a{display:inline-block;padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--ink);font-size:.92rem}
+.nav a:hover{background:#ece6da}
+
+/* ---------- Portada ---------- */
+.cover{background:#1b1a17;color:#fff;min-height:calc(100vh - 54px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.cover-text{padding:clamp(28px,5vw,64px);display:flex;flex-direction:column;justify-content:center;gap:18px}
+.cover .uni{font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:#e6d8b8;margin:0}
+.cover .prog{font-size:1rem;color:#d7d2c8;margin:0}
+.cover h1{font-size:clamp(1.7rem,3.4vw,2.7rem);margin:0;color:#fff}
+.cover .act{display:inline-block;align-self:flex-start;background:#e6c46b;color:#2a2108;font-weight:700;padding:6px 14px;border-radius:999px;font-size:.95rem}
+.cover dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:6px 0 0;font-size:1rem}
+.cover dt{color:#bdb5a4}
+.cover dd{margin:0;color:#fff}
+.cover .go{align-self:flex-start;margin-top:10px;display:inline-block;background:#fff;color:#1b1a17;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:10px}
+.cover .go:hover{background:#f1e8d3}
+.cover-bands{display:grid;grid-template-columns:repeat(4,1fr);min-height:320px}
+.band{position:relative;overflow:hidden}
+.band img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--c) 0%,color-mix(in srgb,var(--c) 55%,transparent) 38%,transparent 75%);opacity:.92}
+.band span{position:absolute;left:10px;right:10px;bottom:14px;z-index:2;font-family:var(--serif);font-weight:700;font-size:1.02rem;line-height:1.15;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.band small{display:block;font-family:var(--sans);font-weight:400;font-size:.78rem;opacity:.95;margin-top:3px}
+
+/* ---------- Secciones ---------- */
+section.s{padding:56px 0}
+section.s>.wrap>h2{font-size:clamp(1.5rem,2.6vw,2.1rem)}
+.lead{max-width:860px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin:18px 0 6px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:12px;font-size:.93rem}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+
+/* Iconos de concepto: forma fija + icono, sin depender del color */
+.ico{width:34px;height:34px;display:inline-grid;place-items:center;background:#2b2722;color:#fff;flex:0 0 34px}
+.ico svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ico.edu{border-radius:6px;border-left:6px solid #e6c46b}
+.ico.apr{border-radius:50%}
+.ico.doc{clip-path:polygon(25% 4%,75% 4%,100% 50%,75% 96%,25% 96%,0 50%)}
+.ico.est{clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%)}
+
+/* ---------- Línea de tiempo ---------- */
+.tl-ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 0}
+.btn{font:inherit;border:1px solid #2b2722;background:#fff;color:#2b2722;border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:600}
+.btn:hover{background:#2b2722;color:#fff}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.hint{font-size:.9rem;color:var(--muted)}
+.tl{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 0 6px}
+.tl-scroll{overflow-x:auto;scroll-behavior:smooth;padding:0 54px 14px;scrollbar-color:#9c9384 #eee}
+.tl-track{display:flex;align-items:stretch;width:max-content;gap:0}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:42px;height:42px;border-radius:50%;border:1px solid #2b2722;background:#fff;font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.arrow:hover{background:#2b2722;color:#fff}
+.arrow.l{left:6px}.arrow.r{right:6px}
+.nodes.capL::after,.nodes.capR::after{content:"";position:absolute;top:8px;width:0;height:0;border:11px solid transparent}
+.nodes.capL::after{left:-26px;border-right:20px solid var(--c);border-left:0}
+.nodes.capR::after{right:-26px;border-left:20px solid var(--c);border-right:0}
+.seg{--bgc:#fff;position:relative;flex:0 0 auto;border-top:6px solid var(--c);background:linear-gradient(to bottom,var(--bgc),#fff 70%);padding:0 6px 6px;margin-right:6px;border-radius:8px 8px 0 0}
+.seg-head{display:flex;gap:14px;align-items:flex-start;padding:14px 8px 10px;min-height:178px}
+.seg-head figure{margin:0;width:148px;flex:0 0 148px}
+.seg-head img{width:148px;height:116px;object-fit:cover;border-radius:8px;border:2px solid var(--c)}
+.seg-head figcaption{font-size:.66rem;line-height:1.25;color:var(--muted);margin-top:3px}
+.seg-head h3{color:var(--c);font-size:1.28rem;margin:0}
+.seg-head .years{font-weight:700;margin:0}
+.seg-head .sub{margin:0 0 8px;color:var(--muted);font-size:.9rem}
+.btn-ficha{font:inherit;font-size:.86rem;border:2px solid var(--c);background:#fff;color:var(--c);border-radius:8px;padding:5px 10px;cursor:pointer;font-weight:700}
+.btn-ficha:hover,.btn-ficha[aria-pressed="true"]{background:var(--c);color:#fff}
+.nodes{list-style:none;margin:0;padding:0;display:flex;position:relative}
+.nodes::before{content:"";position:absolute;left:0;right:0;top:15px;height:8px;background:var(--c);border-radius:4px}
+.nodes li{flex:0 0 172px;display:flex;justify-content:center;align-items:flex-start}
+.node{position:relative;font:inherit;background:none;border:0;cursor:pointer;width:168px;padding:0 6px 6px;text-align:center;color:var(--ink)}
+.node .dot{display:block;width:30px;height:30px;margin:0 auto 6px;border-radius:50%;background:#fff;border:6px solid var(--c);position:relative;z-index:2;transition:transform .15s}
+.node:hover .dot{transform:scale(1.18)}
+.node .nf{display:block;font-weight:800;font-size:.84rem;color:var(--c)}
+.node .nt{display:block;font-size:.88rem;line-height:1.3;margin-top:2px}
+.node[aria-current="true"] .dot{background:var(--c);box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 28%,transparent);transform:scale(1.2)}
+.node[aria-current="true"] .nt{font-weight:700}
+
+/* ---------- Panel de detalle ---------- */
+.detail{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;--c:#555}
+.d-top{background:var(--c);color:#fff;padding:14px 22px}
+.d-top .kicker{font-size:.84rem;letter-spacing:.06em;text-transform:uppercase;opacity:.92;margin:0}
+.d-top h3{margin:.15em 0 0;font-size:clamp(1.25rem,2.3vw,1.7rem);color:#fff}
+.d-top .when{margin:.15em 0 0;font-weight:600;opacity:.95}
+.d-body{display:grid;grid-template-columns:1fr;gap:0}
+.d-body.withimg{grid-template-columns:minmax(0,1fr) 280px}
+.rows{padding:8px 22px 8px}
+.row{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.row:last-child{border-bottom:0}
+.row h4{font-family:var(--sans);font-size:1rem;margin:0 0 3px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row p{margin:0}
+.row.empty p{color:#7b7467;font-style:italic}
+.badge{font-family:var(--sans);font-size:.72rem;font-weight:700;border-radius:999px;padding:2px 9px;border:1.5px solid #6b6455;color:#463f33;background:#f3efe6}
+.badge.def{border-color:var(--c);color:var(--c);background:#fff}
+.note{margin:12px 22px 0;padding:8px 12px;background:#f5f1e6;border-left:4px solid var(--c);font-size:.9rem;border-radius:0 8px 8px 0}
+.d-side{padding:18px 20px 18px 0}
+.d-side figure{margin:0}
+.d-side img{width:100%;border-radius:10px;border:2px solid var(--c)}
+.d-side figcaption{font-size:.74rem;color:var(--muted);margin-top:5px;line-height:1.3}
+.hl{padding:6px 22px 14px;border-top:1px solid var(--line)}
+.hl h4{font-family:var(--sans);font-size:1rem;margin:12px 0 8px}
+.hl>div{display:flex;flex-wrap:wrap;gap:8px}
+.hbtn{font-size:.88rem;padding:6px 12px;border-color:var(--c);color:var(--c)}
+.hbtn:hover{background:var(--c);color:#fff}
+.d-nav{display:flex;justify-content:space-between;gap:10px;padding:12px 22px 18px;border-top:1px solid var(--line);flex-wrap:wrap}
+
+/* ---------- Comparar ---------- */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.tab{font:inherit;display:inline-flex;align-items:center;gap:10px;border:2px solid #2b2722;background:#fff;color:#2b2722;border-radius:12px;padding:6px 14px 6px 8px;cursor:pointer;font-weight:700}
+.tab:hover{background:#ece6da}
+.tab[aria-selected="true"]{background:#2b2722;color:#fff;box-shadow:0 0 0 3px #e6c46b}
+.tab[aria-selected="true"] .ico{background:#fff;color:#2b2722}
+.tab[aria-selected="true"] .ico.edu{border-left-color:#2b2722}
+.cmp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.col{background:#fff;border:1px solid var(--line);border-top:8px solid var(--c);border-radius:12px;padding:14px 16px 16px;background:linear-gradient(to bottom,var(--bgc),#fff 120px)}
+.col h3{color:var(--c);font-size:1.15rem;margin:0}
+.col .years{font-weight:700;font-size:.88rem;margin:0 0 6px}
+.col p{margin:.5em 0 0;font-size:.95rem}
+
+/* ---------- Referencias ---------- */
+.refs ol,.refs ul{padding:0;margin:0;list-style:none}
+.refs li{padding:12px 0 12px 2.2em;text-indent:-2.2em;border-bottom:1px solid var(--line)}
+.refs li .ap{display:block;text-indent:0;margin-left:2.2em;font-size:.88rem;color:var(--muted);margin-top:3px}
+.refs h3{margin-top:30px}
+.refs .img-credits li,.refs .tools li{padding-left:0;text-indent:0}
+.pill{display:inline-block;font-size:.72rem;font-weight:700;padding:1px 8px;border-radius:999px;background:#ece6da;margin-right:4px;text-indent:0}
+footer{background:#1b1a17;color:#d7d2c8;padding:28px 0;font-size:.92rem}
+footer a{color:#e6c46b}
+.printall{display:none}
+
+/* ---------- Adaptación a pantallas pequeñas ---------- */
+@media (max-width:900px){
+  .cover{grid-template-columns:1fr}
+  .cover-bands{min-height:210px;order:2}
+  .cmp{grid-template-columns:1fr}
+  .d-body.withimg{grid-template-columns:1fr}
+  .d-side{padding:0 22px 14px}
+  .tl-scroll{padding:0 12px 14px}
+  .arrow{display:none}
+  body{font-size:16px}
+  .nav{position:static}
+  .nav b{display:none}
+}
+@media (prefers-reduced-motion:reduce){html,.tl-scroll{scroll-behavior:auto}.node .dot{transition:none}}
+
+/* ---------- Impresión / PDF de respaldo ---------- */
+@media print{
+  .nav,.tl,.tl-ctrl,.legend,.tabs,.cmp,#comparar,.d-nav,.go,#detalle,#lineaIntro,#comparar{display:none!important}
+  .printall{display:block}
+  .cover{min-height:auto;color:#000;background:#fff;grid-template-columns:1fr;page-break-after:always}
+  .cover h1,.cover dd,.cover .uni,.cover .prog,.cover dt{color:#000}
+  .cover-bands{min-height:160px}
+  section.s{padding:14px 0}
+  .pa-h{break-after:avoid}
+  .pa-item{break-inside:avoid;border:1px solid #bbb;border-radius:8px;margin:0 0 10px;padding:6px 12px}
+  body{font-size:11pt;background:#fff}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Secciones">
+  <div class="wrap">
+    <b>Educación en México · Línea de tiempo</b>
+    <ul>
+      <li><a href="#portada">Portada</a></li>
+      <li><a href="#linea">Línea de tiempo</a></li>
+      <li><a href="#comparar">Comparar por concepto</a></li>
+      <li><a href="#referencias">Referencias</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ======================= PORTADA ======================= -->
+<header class="cover" id="portada">
+  <div class="cover-text">
+    <p class="uni">Universidad del Valle de México</p>
+    <p class="prog">Maestría en Educación con orientación en innovación y tecnología</p>
+    <span class="act">Actividad 1 – Línea de tiempo</span>
+    <h1>Evolución de los conceptos de educación, aprendizaje y de los roles del docente y del estudiante en México</h1>
+    <dl>
+      <dt>Materia</dt><dd>Paradigmas psicopedagógicos contemporáneos</dd>
+      <dt>Docente</dt><dd>Dr. José Limón González</dd>
+      <dt>Alumno</dt><dd>Eliseo Anaya Dorantes</dd>
+      <dt>Matrícula</dt><dd>a25068461</dd>
+      <dt>Fecha</dt><dd>15 de noviembre de 2026</dd>
+    </dl>
+    <a class="go" href="#linea">Ver la línea de tiempo →</a>
+  </div>
+  <div class="cover-bands" aria-hidden="true" id="coverBands"></div>
+</header>
+
+<!-- ======================= LÍNEA DE TIEMPO ======================= -->
+<section class="s" id="linea" aria-labelledby="h-linea">
+  <div class="wrap">
+    <h2 id="h-linea">Línea de tiempo</h2>
+    <div id="lineaIntro">
+      <p class="lead">Cuatro etapas, cada una con su color, recorren la manera en que se ha entendido la educación, el aprendizaje y los roles del docente y del estudiante en México. Cada etapa se presenta primero con su <strong>ficha</strong>, el panorama completo de los cuatro conceptos; después, dentro de la etapa, puedes abrir los <strong>hitos</strong> para ver el detalle. Avanza y retrocede entre etapas con los botones, con las flechas del teclado (← →) o deslizando la línea.</p>
+
+    </div>
+
+    <div class="tl-ctrl">
+      <button class="btn" id="prevBtn" type="button">← Etapa anterior</button>
+      <button class="btn" id="nextBtn" type="button">Etapa siguiente →</button>
+      <span class="hint" id="posHint"></span>
+    </div>
+
+    <div class="tl">
+      <button class="arrow l" id="scrL" type="button" aria-label="Desplazar la línea hacia el pasado">‹</button>
+      <button class="arrow r" id="scrR" type="button" aria-label="Desplazar la línea hacia el presente">›</button>
+      <div class="tl-scroll" id="tlScroll" tabindex="0" aria-label="Línea de tiempo desplazable">
+        <div class="tl-track" id="tlTrack"></div>
+      </div>
+    </div>
+
+    <article class="detail" id="detalle" aria-live="polite"></article>
+  </div>
+</section>
+
+<!-- ======================= COMPARAR ======================= -->
+<section class="s" id="comparar" style="background:#f1ece1" aria-labelledby="h-comp">
+  <div class="wrap">
+    <h2 id="h-comp">Comparar por concepto</h2>
+    <p class="lead">Elige un concepto para ver cómo cambia a lo largo de las cuatro etapas, una junto a otra.</p>
+    <div class="tabs" role="tablist" aria-label="Concepto a comparar" id="tabs"></div>
+    <div class="cmp" id="cmp" role="tabpanel"></div>
+  </div>
+</section>
+
+<!-- ======================= IMPRESIÓN ======================= -->
+<section class="s printall" aria-hidden="true"><div class="wrap" id="printAll"></div></section>
+
+<!-- ======================= REFERENCIAS ======================= -->
+<section class="s refs" id="referencias" aria-labelledby="h-ref">
+  <div class="wrap">
+    <h2 id="h-ref">Referencias</h2>
+    <p class="lead">Fuentes académicas citadas en la línea de tiempo, en formato APA 7.ª edición. Debajo de cada referencia se indica qué concepto aporta y en qué páginas.</p>
+    <ol id="refList"></ol>
+
+    <h3>Créditos de las imágenes</h3>
+    <p class="lead">Todas las imágenes provienen de Wikimedia Commons y son de dominio público o tienen licencia libre. Se muestran con atribución y enlace a su ficha original.</p>
+    <ul class="img-credits" id="imgCredits"></ul>
+
+    <h3>Herramientas de acceso libre utilizadas</h3>
+    <ul class="tools" id="tools"></ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Eliseo Anaya Dorantes · Matrícula a25068461 · Maestría en Educación con orientación en innovación y tecnología, Universidad del Valle de México · Actividad 1 – Línea de tiempo · 15 de noviembre de 2026
+  </div>
+</footer>
+
+<script>
+/* ========================================================================
+   DATOS
+   ======================================================================== */
+const ICON = {
+  edu:'<svg viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5a1.5 1.5 0 0 1 1.5 1.5z"/></svg>',
+  apr:'<svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg>',
+  doc:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="10" rx="1.5"/><path d="M8 14v2.5M16 14v2.5M6.5 20.5 8 16.5h8l1.5 4"/><circle cx="12" cy="9" r="1.6"/></svg>',
+  est:'<svg viewBox="0 0 24 24"><path d="M2 9.5 12 5l10 4.5L12 14z"/><path d="M6 11.6v4.2c0 1.3 2.7 2.7 6 2.7s6-1.4 6-2.7v-4.2"/><path d="M22 9.5v5"/></svg>'
+};
+const LABEL = {edu:"Educación", apr:"Aprendizaje", doc:"Rol del docente", est:"Rol del estudiante"};
+const KEYS = ["edu","apr","doc","est"];
+
+const IMG = {
+  serpiente:{src:"img/serpiente-templo-mayor.jpg", alt:"Escultura de serpiente de piedra en las ruinas del Templo Mayor de Tenochtitlan, Ciudad de México", cap:"Templo Mayor de Tenochtitlan (detalle). Foto: Juan Carlos Fonseca Mata, CC BY-SA 4.0.", short:"Templo Mayor · J. C. Fonseca Mata · CC BY-SA 4.0", url:"https://commons.wikimedia.org/wiki/File:Templo_Mayor,_Tenochtitlan_CDMX11.jpg"},
+  codice:{src:"img/codice-mendoza-61r.jpg", alt:"Folio 61r del Códice Mendoza con escenas de la educación de los jóvenes mexicas", cap:"Códice Mendoza, f. 61r (ca. 1541-1542), Bodleian Library. Dominio público.", short:"Códice Mendoza f. 61r · dominio público", url:"https://commons.wikimedia.org/wiki/File:Codex_Mendoza_folio_61r.jpg"},
+  voltolina:{src:"img/voltolina.jpg", alt:"Miniatura medieval de un maestro dando lección a sus estudiantes en la Universidad de Bolonia", cap:"Laurentius de Voltolina, lección universitaria (Liber ethicorum de Henricus de Alemannia), segunda mitad del siglo XIV. Kupferstichkabinett, Staatliche Museen zu Berlin. Dominio público.", short:"L. de Voltolina · Kupferstichkabinett, Berlín · dominio público", url:"https://commons.wikimedia.org/wiki/File:Laurentius_de_Voltolina_Vorlesung_vor_Studenten_-_Min_1233_-_Kupferstichkabinett_Berlin.jpg"},
+  tepotzotlan:{src:"img/tepotzotlan.jpg", alt:"Fachada barroca del templo de San Francisco Javier en Tepotzotlán, antiguo colegio jesuita", cap:"Templo de San Francisco Javier, Tepotzotlán (antiguo colegio jesuita). Foto: Tucita33, CC BY 4.0.", short:"Tepotzotlán · Tucita33 · CC BY 4.0", url:"https://commons.wikimedia.org/wiki/File:Fachada_del_templo_de_San_Francisco_Javier.jpg"},
+  sanilFachada:{src:"img/san-ildefonso-fachada.jpg", alt:"Fachada del Antiguo Colegio de San Ildefonso, Ciudad de México", cap:"Antiguo Colegio de San Ildefonso, fachada. Foto: Juan Carlos Fonseca Mata, 2019, CC BY-SA 4.0.", short:"San Ildefonso · J. C. Fonseca Mata · CC BY-SA 4.0", url:"https://commons.wikimedia.org/wiki/File:Antiguo_Colegio_de_San_Ildefonso,_Ciudad_de_M%C3%A9xico_-_Fachada.jpg"},
+  sanilGaleria:{src:"img/san-ildefonso-galeria.jpg", alt:"Galería con arcos del Antiguo Colegio de San Ildefonso, sede de la Escuela Nacional Preparatoria", cap:"Antiguo Colegio de San Ildefonso, galería. Foto: ProtoplasmaKid, CC BY 4.0.", short:"San Ildefonso · ProtoplasmaKid · CC BY 4.0", url:"https://commons.wikimedia.org/wiki/File:Antiguo_Colegio_de_San_Ildefonso_-_2026_-_08.jpg"}
+};
+
+const PERIODS = [
+ { id:"antigua", nombre:"Edad Antigua", sub:"Mesoamérica mexica", years:"ca. siglo XIV–1521", c:"#a8452a", bgc:"#fbeadd", img:"serpiente", fichaImg:"codice",
+   ficha:{
+     titulo:"Ficha 1. Edad Antigua: Mesoamérica mexica (ca. siglo XIV–1521)",
+     edu:"Los nahuas la llamaban *Tlacahuapahualiztli*, “arte de criar y educar a los hombres” (León-Portilla, 2017, p. 271). Buscaba formar a la persona y, a la vez, integrarla en la comunidad; el imperio azteca enfatizaba más lo segundo (p. 272). La meta era dar sabiduría a los “rostros” y firmeza a los “corazones” (pp. 279-280). Era además un asunto del Estado, orientado a formar personas útiles al proyecto político mexica (Kobayashi, 1974, pp. 57-60).",
+     apr:"Se aprendía practicando bajo disciplina. En el hogar, el niño ejercitaba el autocontrol mediante privaciones y recibía exhortaciones paternas; en el Calmécac había trabajo diario, penitencias y oración nocturna (León-Portilla, 2017, pp. 273-277). Los *huehuehtlahtolli* transmitían las normas morales (pp. 284-290). Kobayashi señala que el calmécac transmitía cantos, historias y libros calendáricos, lo que implica memorización (1974, p. 70). Ninguna de las dos obras define “aprendizaje” como tal; es lectura nuestra a partir de las prácticas descritas.",
+     doc:"El padre era el primer educador; después, los sacerdotes y directores de las escuelas (León-Portilla, 2017, pp. 272-275). Los *tlamatinime* del Calmécac cumplían la misión de “hacer sabios los rostros ajenos” (pp. 279-280). Según Kobayashi, eran sacerdotes y ancianos que corregían y castigaban, con el tlatoani como responsable último (1974, pp. 60, 63, 68-69).",
+     est:"Los jóvenes ingresaban a una escuela pública, Telpochcalli o Calmécac, que elegían sus padres (León-Portilla, 2017, pp. 274-275). Los estudiantes se llamaban *momachtique* (pp. 278-279). Se les pedía dominar sus deseos antes de casarse (pp. 289-290). Debían obedecer a sus mayores y no estar ociosos (Kobayashi, 1974, p. 60).",
+     aprDef:false } },
+ { id:"media", nombre:"Edad Media", sub:"Escolástica europea", years:"siglos VI–XV", c:"#1f3a5f", bgc:"#e9eff8", img:"voltolina", fichaImg:null,
+   ficha:{
+     titulo:"Ficha 2. Edad Media: escolástica europea (siglos VI–XV)",
+     edu:"Hasta el siglo XII la finalidad dominante era formar élites para la función pública; con el cristianismo pasó a ser sobre todo pastoral, con la Iglesia como referencia (Lázaro Pulido, 2018, p. 9). Buscaba el crecimiento personal al servicio de la lectura bíblica y la sabiduría cristiana, con una tensión constante entre formar en libertad y ejercer control social (pp. 20-21). La universidad era una corporación de maestros y estudiantes que difundía un saber heredado de la Antigüedad (Rojas Donat, 2000, p. 56). Su base eran las artes liberales, que preparaban para teología, medicina y derecho (pp. 58-59).",
+     apr:"La *lectio* era lectura comentada del texto; la *quaestio* planteaba cuestiones, y la *disputatio* organizaba el debate con objeciones y respuestas (Lázaro Pulido, 2018, pp. 18-19). El currículo se estructuraba en trivium y quadrivium (pp. 12-15). La enseñanza era sobre todo oral porque los libros eran escasos; los estudiantes memorizaban pasajes, y el método buscaba formar un intelectual capaz de plantear problemas y tomar posición (Rojas Donat, 2000, pp. 59-62). Ninguna de las dos fuentes define “aprendizaje” como tal.",
+     doc:"El maestro era también padre espiritual, con una relación personal con sus alumnos; con la universidad pasó a llamarse doctor o profesor, y en las escuelas catedralicias el obispo concedía la *licentia docendi* (Lázaro Pulido, 2018, pp. 8, 10-11). Era la figura central: su voz, su claridad y su manera de argumentar determinaban el valor de la enseñanza, y al ingresar a la corporación juraba enseñar con verdad (Rojas Donat, 2000, pp. 56, 61, 64).",
+     est:"Primero fue discípulo cercano al maestro; con la universidad pasó a ser estudiante, y se esperaba que progresara hacia la reflexión propia, las preguntas y la discusión (Lázaro Pulido, 2018, pp. 11, 14). Tomaba notas, escuchaba y memorizaba, a veces registraba las palabras del maestro, y muchos no tenían libros propios (Rojas Donat, 2000, pp. 60, 62-64).",
+     aprDef:false } },
+ { id:"moderna", nombre:"Edad Moderna", sub:"Colonia e Independencia", years:"1523–1842", c:"#5b2a86", bgc:"#efe8f7", img:"tepotzotlan", pos:"50% 78%", fichaImg:"sanilFachada",
+   ficha:{
+     titulo:"Ficha 3. Edad Moderna: Colonia e Independencia (1523–1842)",
+     edu:"Fue un instrumento de evangelización e integración: buscaba cambiar la cosmovisión indígena, enseñar obediencia y trabajo, y formar a los jóvenes de la nobleza indígena destinados a gobernar sus pueblos (Gonzalbo, 1990, pp. 29-30, 36-37). La propuesta jesuita buscaba un clero indígena para unos pocos y, para el resto, laicos leales a la corona (pp. 155-156). En el siglo XIX, una asociación filantrópica promovió la primaria entre los pobres con un método barato, que permitía a un maestro atender de 200 a 1000 alumnos (Tanck de Estrada, 1992, pp. 49-51).",
+     apr:"Se privilegiaba la memorización del catecismo “de coro”, con apoyos visuales y un sistema mutuo en el que los alumnos más diestros enseñaban a sus compañeros (Gonzalbo, 1990, pp. 31-35). Las cartillas usaban el método silábico, y los catecismos testerianos reproducían la doctrina con dibujos (pp. 142-143). En las escuelas lancasterianas, grupos de diez con un monitor, escritura en arena, lectura por silabeo y catecismos memorizados (Tanck de Estrada, 1992, pp. 51-58).",
+     doc:"El fraile enseñaba la doctrina y educaba con el ejemplo de austeridad y penitencia (Gonzalbo, 1990, pp. 29, 37). Los fiscales o teopantlacas indígenas enseñaban a los niños bajo la vigilancia del párroco (p. 150). En la escuela lancasteriana, el director supervisaba y preparaba a los monitores, sin intervenir en la instrucción directa (Tanck de Estrada, 1992, p. 54).",
+     est:"Los hijos de principales vivían internos en los conventos y aprendían lectura, escritura, canto y latín básico; los macehuales recibían solo doctrina (Gonzalbo, 1990, pp. 35-38). En Tepotzotlán, los internos eran hijos de caciques, y en 1592 se limitaron a unos treinta (pp. 158-163). En la lancasteriana, el niño debía mantenerse activo, y los monitores enseñaban, tomaban asistencia o aplicaban disciplina (Tanck de Estrada, 1992, pp. 54, 59).",
+     aprDef:false } },
+ { id:"contemporanea", nombre:"Edad Contemporánea", sub:"De la Reforma a la Nueva Escuela Mexicana", years:"1867–2026", c:"#0f6b66", bgc:"#e2f2f0", img:"sanilGaleria", fichaImg:null,
+   ficha:{
+     titulo:"Ficha 4. Edad Contemporánea: de la Reforma a la NEM (1867–2026)",
+     edu:"Barreda introdujo el positivismo: la educación debía ordenar la mente y crear un fondo común de verdades, y la ley de 1867 secularizó la enseñanza oficial (Galván Lafarga, 2016, pp. 55-57). La instrucción rudimentaria de 1911 enseñaba a hablar, leer y escribir en español y aritmética a la población rural dispersa (Granja Castro, 2010, pp. 72-73). El proyecto vasconcelista planteaba una “regeneración moral” del pueblo e integraba a la población indígena en un solo sistema (Moraga Valle, 2016, pp. 1348-1349). El enfoque por competencias pretendía orientar la escuela a problemas del entorno y superar el enciclopedismo (Díaz-Barriga, 2011, pp. 4, 6). La Nueva Escuela Mexicana (NEM) la fundamenta en la dignidad humana y busca el desarrollo humano integral (Secretaría de Educación Pública [SEP], 2024, pp. 15-16, 22).",
+     apr:"Conductismo: cambio de la conducta observable; cognitivismo: almacenamiento organizado y significativo en la memoria; constructivismo: crear significado a partir de la experiencia (Ertmer y Newby, 2013, pp. 48, 51, 53, 55). En la escuela rural se basaba en la experiencia y en “aprender haciendo” (Taylor et al., 2016, pp. 44, 49). El Plan 2022 lo ubica en problemas relevantes y proyectos, no en asignaturas aisladas (SEP, 2024, pp. 18, 33).",
+     doc:"En 1867 había tres clases de profesores de primaria, todos con examen (Galván Lafarga, 2016, p. 57). En la escuela rural pasó de transmisor a guía (Taylor et al., 2016, pp. 44, 53), con maestros formados en las Misiones Culturales (p. 37). Para Díaz-Barriga, su tarea central es crear una situación problemática que motive a aprender (2011, pp. 20-21). La NEM lo reconoce como profesional, intelectual y agente de transformación, con autonomía didáctica (SEP, 2024, pp. 27-28, 43-44).",
+     est:"En 1867 la asistencia era obligatoria desde los cinco años (Galván Lafarga, 2016, p. 57). En la escuela de la acción era sujeto activo que investiga, trabaja en talleres y reflexiona (Taylor et al., 2016, p. 44). En el proyecto vasconcelista, el niño es el centro del proceso (Moraga Valle, 2016, p. 1349). En el Plan 2022 es sujeto de derechos y participa en construir la escuela y definir proyectos (SEP, 2024, pp. 19-20, 33, 44).",
+     aprDef:true } }
+];
+
+/* Hitos: p = índice de etapa; f = fecha; t = título; filas opcionales edu/apr/doc/est */
+const HITOS = [
+ // ---- Antigua
+ {p:0,f:"Primera infancia",t:"La crianza en el hogar",
+  edu:"Era la *Tlacahuapahualiztli*, “arte de criar y educar a los hombres”, y buscaba formar a la persona e integrarla en la comunidad (León-Portilla, 2017, pp. 271-272).",
+  apr:"El niño aprendía autocontrol mediante privaciones y exhortaciones paternas (León-Portilla, 2017, pp. 273-274), y mediante trabajos prácticos como ayudar en el campo, pescar o hilar (Kobayashi, 1974, pp. 61-66).",
+  doc:"El padre era el primer educador: aconsejaba y amonestaba (León-Portilla, 2017, pp. 272-274).",
+  est:"Debía obedecer a sus mayores y no estar ocioso (Kobayashi, 1974, p. 60)."},
+ {p:0,f:"Hacia los 15 años",t:"Ingreso al Telpochcalli o al Calmécac",
+  edu:"Los padres elegían entre ambas escuelas, y casi todos los niños asistían a alguna (León-Portilla, 2017, pp. 274-276).",
+  apr:"En el Calmécac había disciplina diaria, trabajo y penitencias (León-Portilla, 2017, pp. 276-277). Se enseñaba a hablar bien, cantos sagrados, astrología, calendarios e historia (pp. 277-279). Kobayashi (1974, p. 70) señala que la transmisión de cantos, historias y libros calendáricos implica memorización.",
+  doc:"Sacerdotes y directores de las escuelas (León-Portilla, 2017, pp. 274-275). Los *tlamatinime* cumplían la misión de “hacer sabios los rostros ajenos” (pp. 279-280).",
+  est:"Se llamaba *momachtique* y se formaba en doctrina, cronología e historia (León-Portilla, 2017, pp. 278-279). Debía dominar sus deseos antes de casarse (pp. 289-290)."},
+ {p:0,f:"Gobierno de Motecuhzoma Ilhuicamina",t:"Escuelas en todos los barrios: educación de Estado",
+  edu:"Motecuhzoma Ilhuicamina ordenó crear escuelas en todos los barrios (Kobayashi, 1974, pp. 59-60). La educación servía al programa político tras la guerra contra Azcapotzalco y a la idea de un pueblo elegido (Kobayashi, 1974, pp. 58-59). El imperio enfatizaba la integración en el grupo sobre la formación individual (León-Portilla, 2017, p. 272).",
+  doc:"El tlatoani era el responsable último, y el *Mexícatl teohuatzin* vigilaba la formación de los jóvenes (Kobayashi, 1974, pp. 60, 63, 68-69)."},
+ // ---- Media
+ {p:1,f:"781",t:"Escuela palatina y renacimiento carolingio",
+  edu:"Hasta el siglo XII la finalidad dominante era formar élites para la función pública (Lázaro Pulido, 2018, p. 9). La escuela palatina se fundó en 781 bajo Alcuino de York (p. 5), y los monasterios fueron focos culturales (p. 6).",
+  apr:"Predominaba la *lectio divina*, con cuatro sentidos de la Escritura: literal, alegórico, moral y anagógico (Lázaro Pulido, 2018, p. 16).",
+  doc:"El maestro se identificaba más por su figura que por su escuela, con una relación personal con sus alumnos (Lázaro Pulido, 2018, p. 10).",
+  est:"En los monasterios, los hijos de nobles se formaban para el clero (Lázaro Pulido, 2018, p. 10)."},
+ {p:1,f:"Siglos IX–X",t:"Escuelas catedralicias",
+  edu:"Con el cristianismo la finalidad pasó a ser sobre todo pastoral, con la Iglesia como referencia (Lázaro Pulido, 2018, p. 9). Las escuelas catedralicias se impulsaron en el siglo IX (p. 7). Rojas Donat (2000, pp. 56-57) las ubica en el medio urbano desde el siglo X.",
+  doc:"Funcionaban bajo la autoridad del obispo, quien concedía la *licentia docendi* (Lázaro Pulido, 2018, p. 8)."},
+ {p:1,f:"Siglo XII",t:"Renacimiento del siglo XII y *studium generale*",
+  edu:"Las escuelas catedralicias se convirtieron en *studium generale*, de enseñanza amplia y enciclopédica, mientras los monasterios reducían su función docente (Rojas Donat, 2000, pp. 56-57). Llegaron la escolástica y la obra de Aristóteles (Lázaro Pulido, 2018, pp. 3-4)."},
+ {p:1,f:"Siglo XIII",t:"Las universidades de Bolonia y París",
+  edu:"La universidad era una corporación de maestros y estudiantes que difundía un saber heredado. Su base eran las artes liberales, que preparaban para teología, medicina y derecho (Rojas Donat, 2000, pp. 56, 58-59). Antes de 1300 surgieron unas veinte universidades (pp. 57-58).",
+  apr:"*Lectio*, *quaestio*, *disputatio* y *determinatio* (Lázaro Pulido, 2018, pp. 18-19; Rojas Donat, 2000, p. 59). La enseñanza era sobre todo oral porque los libros eran escasos, y se memorizaban los pasajes (Rojas Donat, 2000, pp. 60-62).",
+  doc:"Pasó a llamarse doctor o profesor (Lázaro Pulido, 2018, p. 11). Era la figura central y juraba enseñar con verdad (Rojas Donat, 2000, pp. 56, 61, 64).",
+  est:"Pasó de discípulo a *studens* (Lázaro Pulido, 2018, p. 11). Tomaba notas, memorizaba y a veces registraba las palabras del maestro (Rojas Donat, 2000, pp. 62-63)."},
+ // ---- Moderna
+ {p:2,f:"1523–1524",t:"Llegada de los franciscanos",
+  edu:"Fue un instrumento de evangelización e integración: cambiar la cosmovisión indígena y enseñar obediencia y trabajo (Gonzalbo Aizpuru, 1990, pp. 29-30). Tres franciscanos llegaron en 1523 a Tetzcoco, y en 1524 llegaron doce más (pp. 25-26).",
+  apr:"Memorización del catecismo “de coro”, con cantos y danzas (Gonzalbo Aizpuru, 1990, p. 31). Se usaban lienzos pintados, libritos ilustrados y representaciones teatrales (pp. 32-34). Los alumnos más diestros enseñaban a sus compañeros en un sistema mutuo (p. 35).",
+  doc:"El fraile enseñaba la doctrina y educaba con el ejemplo de austeridad (Gonzalbo Aizpuru, 1990, pp. 29, 37).",
+  est:"Los hijos de principales vivían internos en los conventos y aprendían lectura, escritura, canto y latín básico. Los macehuales recibían solo doctrina (Gonzalbo Aizpuru, 1990, pp. 35-37)."},
+ {p:2,f:"Siglo XVI y 1728",t:"Colegio de Santa Cruz de Tlatelolco",
+  edu:"Era el único colegio de estudios superiores para indígenas (Gonzalbo Aizpuru, 1990, p. 38), pensado para formar jóvenes de la nobleza indígena destinados a gobernar sus pueblos (pp. 36-37). Decayó en el siglo XVI (p. 123) y se reabrió en 1728 con becas para siete caciques (pp. 129-130)."},
+ {p:2,f:"1572–1592",t:"Los jesuitas y el Tercer Concilio",
+  edu:"Los jesuitas llegaron en 1572 (Gonzalbo Aizpuru, 1990, pp. 152-153). Proponían un clero indígena para unos pocos y, para el resto, laicos leales a la corona (pp. 155-156). La cédula de 1583 rechazó los colegios para indios (p. 157), y el Tercer Concilio de 1585 redujo la instrucción indígena a lo elemental (pp. 124-125).",
+  apr:"En Tepotzotlán los alumnos se agrupaban por niveles, en grupos de unos diez, y avanzaban tras dominar el anterior. Había teatro en náhuatl, otomí y castellano (Gonzalbo Aizpuru, 1990, p. 160). Las cartillas usaban el método silábico y los catecismos testerianos recurrían a dibujos (pp. 142-143).",
+  doc:"Los jesuitas se hicieron cargo de Tepotzotlán en 1580 (Gonzalbo Aizpuru, 1990, p. 158). Los fiscales o teopantlacas indígenas enseñaban bajo vigilancia del párroco (p. 150).",
+  est:"Los internos eran hijos de caciques, hasta unos 80. En 1592 se limitaron a unos treinta (Gonzalbo Aizpuru, 1990, pp. 158-163)."},
+ {p:2,f:"1786",t:"Ilustración y primeras letras",
+  edu:"Se concibió como herramienta de progreso, con el Estado como director. Debía formar ciudadanos y mantener la doctrina cristiana (Tanck de Estrada, 1984, pp. 464, 478, 502). En 1786 se ordenaron escuelas en parroquias y conventos (pp. 466-468).",
+  apr:"Método lancasteriano en grupos de diez con monitor, y cartillas y catecismos (Tanck de Estrada, 1984, pp. 472-473, 497-498).",
+  doc:"El gremio examinaba a los maestros hasta su abolición (Tanck de Estrada, 1984, p. 471). Se creó el Inspector de Escuelas (p. 497).",
+  est:"Instrucción pública, gratuita y abierta a todos. En 1831 Zacatecas fijó la obligatoriedad de 6 a 14 años y prohibió los azotes (Tanck de Estrada, 1984, pp. 470, 480-481)."},
+ {p:2,f:"1822",t:"Compañía Lancasteriana",
+  edu:"Una asociación filantrópica promovió la primaria entre los pobres con un método barato, donde un maestro atendía de 200 a 1000 alumnos (Tanck de Estrada, 1992, pp. 49-51). En 1842 el gobierno le entregó la dirección de la instrucción primaria (p. 50).",
+  apr:"Grupos de diez con monitor, escritura en arena, lectura por silabeo y catecismos memorizados. Había tarjetas de mérito y castigos (Tanck de Estrada, 1992, pp. 51-61).",
+  doc:"El director supervisaba y preparaba a los monitores, sin dar instrucción directa (Tanck de Estrada, 1992, p. 54).",
+  est:"Debía mantenerse activo. Los monitores enseñaban, tomaban asistencia o aplicaban disciplina (Tanck de Estrada, 1992, pp. 54, 59)."},
+ // ---- Contemporánea
+ {p:3,f:"1867",t:"Ley Orgánica de Instrucción Pública",
+  edu:"Barreda introdujo el positivismo: la educación debía ordenar la mente y crear un fondo común de verdades. La ley de diciembre de 1867 secularizó la enseñanza oficial (Galván Lafarga, 2016, pp. 55-56).",
+  apr:"Método positivo, enciclopédico. La Compañía Lancasteriana seguía con la enseñanza mutua, mientras la prensa pedagógica discutía el sistema objetivo (Galván Lafarga, 2016, pp. 56-57).",
+  doc:"Tres clases de profesores de primaria según las materias que impartían, todos con examen, para tener un “profesorado instruido” (Galván Lafarga, 2016, pp. 57-58).",
+  est:"Asistencia obligatoria desde los cinco años, con premios a quienes asistían (Galván Lafarga, 2016, pp. 57-58)."},
+ {p:3,f:"1911",t:"Instrucción rudimentaria",
+  edu:"Enseñar a hablar, leer y escribir castellano y las operaciones aritméticas básicas a la población rural dispersa. Nació con la doble encomienda de castellanizar y enseñar rudimentos (Granja Castro, 2010, pp. 72-73).",
+  apr:"Enseñanza objetiva (Granja Castro, 2010, p. 76) y “transmisión directa” en castellano, sin traducción (p. 78).",
+  doc:"Un solo maestro atendía todos los grupos (Granja Castro, 2010, p. 69), y se le criticaba por desconocer el medio (p. 79).",
+  est:"Niños y adultos, sin obligatoriedad y con alimento y vestido como estímulo (Granja Castro, 2010, p. 72). El trabajo infantil explicaba parte de la deserción (p. 79)."},
+ {p:3,f:"1921",t:"La SEP y el proyecto vasconcelista",
+  edu:"El decreto del 3 de octubre de 1921 creó la SEP (Moraga Valle, 2016, p. 1342). El concepto clave era la “regeneración moral”, con integración del indígena, educación libre y centralidad del niño (pp. 1348-1349).",
+  apr:"Promovía el intuicionismo (Moraga Valle, 2016, p. 1349) y la lectura de clásicos en ediciones baratas, los “libros verdes” (pp. 1342, 1344).",
+  doc:"Los “profesores honorarios” debían redimir al pueblo del analfabetismo enseñándole a leer (Moraga Valle, 2016, p. 1353). Las Misiones Culturales reclutaban y entrenaban a los maestros (Taylor et al., 2016, p. 37).",
+  est:"El niño es el centro del proyecto (Moraga Valle, 2016, p. 1349)."},
+ {p:3,f:"Finales de 1923",t:"Escuela de la acción y Escuela Rural",
+  edu:"Estimular las capacidades del niño para formarlo como ser social (Taylor et al., 2016, p. 34), con una educación integral vinculada a la comunidad (p. 37).",
+  apr:"Observación y experiencia antes de las lecciones orales, y talleres donde el niño investigaba y reflexionaba (Taylor et al., 2016, p. 44). El “aprender haciendo” ya operaba cuando Dewey visitó las escuelas en 1926 (p. 49). Las Bases unían trabajo y estudio (Moraga Valle, 2016, p. 1355).",
+  doc:"Pasó de transmisor a guía, y alentaba la participación de alumnos, padres y comunidad (Taylor et al., 2016, pp. 44, 53).",
+  est:"Sin premios ni castigos, con disciplina basada en la libertad dentro del trabajo (Taylor et al., 2016, p. 44). Explora su carácter inquisitivo mediante proyectos (p. 53)."},
+ {p:3,f:"Mediados del siglo XX",t:"Conductismo y cognitivismo",nota:"Marco teórico internacional: ninguna de las fuentes consultadas lo vincula con una fecha de adopción en México, por lo que se presenta como contexto.",aprDef:true,
+  edu:"El conductismo no define un propósito educativo; la instrucción busca la respuesta deseada ante un estímulo (Ertmer y Newby, 2013, p. 50). El cognitivismo busca transmitir conocimiento de forma eficiente (p. 52).",
+  apr:"Para el conductismo es un cambio en la conducta observable (Ertmer y Newby, 2013, p. 48). Para el cognitivismo es un almacenamiento organizado y significativo en la memoria (pp. 51, 53).",
+  doc:"Organiza estímulos y refuerzos (Ertmer y Newby, 2013, pp. 48, 50) o estructura la información, con organizadores previos y retroalimentación (pp. 52, 54).",
+  est:"Es reactivo al entorno (Ertmer y Newby, 2013, p. 48) o un participante muy activo que planifica y fija metas (pp. 51-52)."},
+ {p:3,f:"Fines de los años ochenta–2000",t:"Constructivismo y competencias",aprDef:true,
+  edu:"Orientar la escuela a resolver problemas del entorno y superar el enciclopedismo. El término no tiene una definición consensuada (Díaz-Barriga, 2011, pp. 4, 6).",
+  apr:"Crear significado a partir de la experiencia (Ertmer y Newby, 2013, p. 55). Es una construcción del sujeto desde sus saberes previos, situada en contextos reales (Díaz-Barriga, 2011, pp. 12-13).",
+  doc:"Crea una situación problemática que motive a aprender (Díaz-Barriga, 2011, pp. 20-21) y guía la construcción de conocimiento (Ertmer y Newby, 2013, pp. 58-59).",
+  est:"Formula preguntas y asume el reto de resolver problemas (Díaz-Barriga, 2011, p. 21)."},
+ {p:3,f:"2022",t:"Nueva Escuela Mexicana",aprDef:true,
+  edu:"Se funda en la dignidad humana y busca el desarrollo humano integral. Concibe la escuela como espacio común y laico (Secretaría de Educación Pública [SEP], 2024, pp. 15-16, 22).",
+  apr:"Parte de capacidades y saberes, con problemas relevantes y proyectos, no con asignaturas aisladas (SEP, 2024, pp. 18, 33).",
+  doc:"Profesional, intelectual y agente de transformación social, con autonomía didáctica (SEP, 2024, pp. 27-28, 43-44).",
+  est:"Sujeto de derechos que participa en construir la escuela y definir proyectos (SEP, 2024, pp. 19-20, 33, 44)."}
+];
+
+/* Referencias APA 7 (en español) con concepto y páginas */
+const REFS = [
+ {a:'Díaz-Barriga, Á. (2011). Competencias en educación: Corrientes de pensamiento e implicaciones para el currículo y el trabajo en el aula. <em>Revista Iberoamericana de Educación Superior, 2</em>(5), 3–24. ',u:"https://www.redalyc.org/pdf/2991/299123992001.pdf",
+  ap:"Educación pp. 4, 6 · Aprendizaje pp. 12-17, 21 · Docente pp. 19-22 · Estudiante pp. 12, 21"},
+ {a:'Ertmer, P. A., y Newby, T. J. (2013). Behaviorism, cognitivism, constructivism: Comparing critical features from an instructional design perspective. <em>Performance Improvement Quarterly, 26</em>(2), 43–71. ',u:"https://doi.org/10.1002/piq.21143",extra:" (Obra original publicada en 1993)",
+  ap:"Conductismo pp. 48-50 · Cognitivismo pp. 50-54 · Constructivismo pp. 54-59 (aprendizaje, docente y estudiante en cada corriente)"},
+ {a:'Galván Lafarga, L. E. (2016). <em>Derecho a la educación</em>. Secretaría de Gobernación; Secretaría de Cultura; Instituto Nacional de Estudios Históricos de las Revoluciones de México. ',u:"https://www.constitucion1917.gob.mx/recursos/Libros/Derechoeducacion.pdf",
+  ap:"Capítulo «Hacia la formación del sistema educativo mexicano: 1867-1910»: educación, aprendizaje, docente y estudiante, pp. 55-58 (rango)"},
+ {a:'Gonzalbo Aizpuru, P. (1990). <em>Historia de la educación en la época colonial: El mundo indígena</em>. El Colegio de México. ',u:"https://repositorio.colmex.mx/downloads/r207tq13d",
+  ap:"Educación pp. 29-30, 36-38, 123, 129-130, 152-157 · Aprendizaje pp. 31-35, 142-143, 160 · Docente pp. 29, 37, 150, 158 · Estudiante pp. 35-37, 158-163"},
+ {a:'Granja Castro, J. (2010). Procesos de escolarización en los inicios del siglo XX: La instrucción rudimentaria en México. <em>Perfiles Educativos, 32</em>(129), 64–83. ',u:"https://www.redalyc.org/pdf/132/13214995005.pdf",
+  ap:"Educación pp. 72-73 · Aprendizaje pp. 76, 78 · Docente pp. 69, 73, 79 · Estudiante pp. 72-73, 79"},
+ {a:'Kobayashi, J. M. (1974). <em>La educación como conquista (empresa franciscana en México)</em>. El Colegio de México. ',u:"https://repositorio.colmex.mx/downloads/c534fr877",
+  ap:"Educación pp. 57-60 · Aprendizaje pp. 60-66, 70-71 · Docente pp. 60, 63, 68-69 · Estudiante pp. 60, 66-67"},
+ {a:'Lázaro Pulido, M. (2018). Principios educativos de la educación occidental: La Edad Media. <em>Revista Brasileira de Educação, 23</em>, Artículo e230035, 1–24. ',u:"https://doi.org/10.1590/S1413-24782018230035",
+  ap:"Educación pp. 9, 20-21 · Aprendizaje pp. 12-19 · Docente pp. 8, 10-11 · Estudiante pp. 10-11, 14 · Hitos pp. 3-9"},
+ {a:'León-Portilla, M. (2017). <em>La filosofía náhuatl estudiada en sus fuentes</em> (11.ª ed.). Universidad Nacional Autónoma de México, Instituto de Investigaciones Históricas. ',u:"https://historicas.unam.mx/publicaciones/publicadigital/libros/filosofia/nahuatl.html",extra:" (Obra original publicada en 1956)",
+  ap:"Capítulo V (pp. 269-328): Educación pp. 271-272, 279-280 · Aprendizaje pp. 273-279, 284-290 · Docente pp. 272-275, 278-280 · Estudiante pp. 274-279, 289-290"},
+ {a:'Moraga Valle, F. (2016). Las ideas pedagógicas de Tolstoi y Tagore en el proyecto vasconcelista de educación, 1921-1964. <em>Historia Mexicana, 65</em>(3), 1341–1404. ',u:"https://doi.org/10.24201/hm.v65i3.3184",
+  ap:"Educación pp. 1348-1349, 1353 · Aprendizaje pp. 1342, 1344, 1349, 1355 · Docente pp. 1350, 1353, 1355 · Estudiante pp. 1349, 1355 · Decreto de creación de la SEP p. 1342"},
+ {a:'Rojas Donat, L. (2000). Oralidad y escritura en la enseñanza universitaria medieval. <em>Horizontes Educacionales, 5</em>, 55–65. ',u:"https://www.redalyc.org/pdf/979/97917880008.pdf",
+  ap:"Educación pp. 56, 58-59 · Aprendizaje pp. 59-62 · Docente pp. 56, 61, 64-65 · Estudiante pp. 55, 60-64 · Hitos pp. 56-58"},
+ {a:'Secretaría de Educación Pública. (2024). <em>Plan de Estudio para la educación preescolar, primaria y secundaria 2022</em> (2.ª ed.). Dirección General de Materiales Educativos. ',u:"https://educacionbasica.sep.gob.mx/wp-content/uploads/2024/07/Plan-de-Estudios-Educacion-Basica_digital-2024.pdf",
+  ap:"Educación pp. 15-16, 22 · Aprendizaje pp. 18, 33 · Docente pp. 27-28, 43-44 · Estudiante pp. 19-20, 33, 44"},
+ {a:'Tanck de Estrada, D. (1984). Ilustración y liberalismo en el programa de educación primaria de Valentín Gómez Farías. <em>Historia Mexicana, 33</em>(4), 463–508. ',u:"https://repositorio.colmex.mx/concern/articles/wm117p516",
+  ap:"Educación pp. 464, 466-468, 478, 502 · Aprendizaje pp. 472-473, 497-498 · Docente pp. 471, 497 · Estudiante pp. 470, 480-481"},
+ {a:'Tanck de Estrada, D. (1992). Las escuelas lancasterianas en la ciudad de México: 1822-1842. En A. Hernández Chávez y M. Miño Grijalva (Coords.), <em>La educación en la historia de México</em> (pp. 49–68). El Colegio de México. ',u:"https://repositorio.colmex.mx/downloads/df65vb38x",extra:" (Obra original publicada en 1973 en <em>Historia Mexicana, 22</em>(4), 494–513)",
+  ap:"Educación pp. 49-51 · Aprendizaje pp. 51-61 · Docente p. 54 · Estudiante pp. 54, 59"},
+ {a:'Taylor, X., Arredondo, A., y Padilla, A. (2016). John Dewey en México: Una experiencia compartida en el mundo rural. <em>Espacio, Tiempo y Educación, 3</em>(2), 33–63. ',u:"https://www.redalyc.org/pdf/4774/477455338003.pdf",
+  ap:"Educación pp. 34, 37 · Aprendizaje pp. 44, 49, 53 · Docente pp. 37, 44, 53 · Estudiante pp. 44, 53"}
+];
+
+const TOOLS = [
+ {t:"GitHub Pages",d:"Alojamiento gratuito del sitio web estático.",a:'GitHub. (s. f.). <em>GitHub Pages</em> [Servicio de alojamiento web]. ',u:"https://pages.github.com"},
+ {t:"Wikimedia Commons",d:"Repositorio de imágenes de dominio público y licencia libre usadas en esta línea de tiempo.",a:'Wikimedia Foundation. (s. f.). <em>Wikimedia Commons</em> [Repositorio multimedia]. ',u:"https://commons.wikimedia.org"},
+ {t:"HTML, CSS y JavaScript",d:"Lenguajes web abiertos con los que se construyó la página, sin bibliotecas externas.",a:'MDN Web Docs. (s. f.). <em>Documentación para desarrolladores web</em>. Mozilla. ',u:"https://developer.mozilla.org/es/"},
+ {t:"Claude (Anthropic)",d:"Asistente de inteligencia artificial utilizado como apoyo en la búsqueda y organización de fuentes y en la construcción del código. Las fuentes, los contenidos y las decisiones fueron revisados y aprobados por el autor.",a:'Anthropic. (2026). <em>Claude</em> [Modelo de lenguaje de gran tamaño]. ',u:"https://claude.ai"}
+];
+
+/* ========================================================================
+   UTILIDADES
+   ======================================================================== */
+const $ = s => document.querySelector(s);
+const em = s => s.replace(/\*([^*]+)\*/g,"<em>$1</em>");
+const ico = k => `<i class="ico ${k}" aria-hidden="true">${ICON[k]}</i>`;
+function badge(def){return def?'<span class="badge def">definido por la fuente</span>':'<span class="badge">inferido</span>';}
+function rowHTML(k,txt,def){
+  if(!txt) return `<div class="row empty">${ico(k)}<div><h4>${LABEL[k]}</h4><p>Continúa lo descrito en la ficha de la etapa.</p></div></div>`;
+  return `<div class="row">${ico(k)}<div><h4>${LABEL[k]}${k==="apr"?" "+badge(def):""}</h4><p>${em(txt)}</p></div></div>`;
+}
+function figHTML(key){const i=IMG[key];return `<figure><img src="${i.src}" alt="${i.alt}" loading="lazy" onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/'+decodeURIComponent('${i.url.split("File:")[1]}')+'?width=1200'"><figcaption>${i.cap} <a href="${i.url}" target="_blank" rel="noopener">Ver en Commons</a></figcaption></figure>`;}
+
+/* Leyenda */
+
+
+/* Portada: bandas de imagen por etapa */
+$("#coverBands").innerHTML = PERIODS.map(p=>`<div class="band" style="--c:${p.c}"><img src="${IMG[p.img].src}" alt="" style="object-position:${p.pos||"50% 50%"}"><span>${p.nombre}<small>${p.years}</small></span></div>`).join("");
+
+/* ========================================================================
+   LÍNEA DE TIEMPO
+   ======================================================================== */
+const track = $("#tlTrack"), scroller = $("#tlScroll"), detail = $("#detalle");
+let current = 0, fichaOf = null;
+
+function buildTrack(){
+  let html = '';
+  PERIODS.forEach((p,pi)=>{
+    const items = HITOS.map((h,i)=>({h,i})).filter(o=>o.h.p===pi);
+    html += `<section class="seg" style="--c:${p.c};--bgc:${p.bgc}" aria-label="${p.nombre}">
+      <div class="seg-head">
+        <figure><img src="${IMG[p.img].src}" alt="${IMG[p.img].alt}" loading="lazy" style="object-position:${p.pos||"50% 50%"}" onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/'+decodeURIComponent('${IMG[p.img].url.split("File:")[1]}')+'?width=800'"><figcaption>${IMG[p.img].short}</figcaption></figure>
+        <div><h3>${p.nombre}</h3><p class="years">${p.years}</p><p class="sub">${p.sub}</p>
+        <button type="button" class="btn-ficha" data-ficha="${pi}" aria-pressed="false">Ficha de la etapa</button></div>
+      </div>
+      <ol class="nodes${pi===0?" capL":""}${pi===PERIODS.length-1?" capR":""}">${items.map(o=>`<li><button type="button" class="node" data-i="${o.i}" aria-label="Hito ${o.i+1}: ${o.h.f}. ${o.h.t.replace(/\*/g,"")}"><span class="dot"></span><span class="nf">${o.h.f}</span><span class="nt">${em(o.h.t)}</span></button></li>`).join("")}</ol>
+    </section>`;
+  });
+  track.innerHTML = html;
+  // ancho de cada segmento según su número de hitos (mínimo para que quepa la cabecera)
+  track.querySelectorAll(".seg").forEach((s,pi)=>{
+    const n = HITOS.filter(h=>h.p===pi).length;
+    s.style.width = Math.max(n*172, 400)+12+"px";
+  });
+}
+
+function detailShell(p,kicker,title,when){
+  detail.style.setProperty("--c",p.c);
+  return `<div class="d-top"><p class="kicker">${kicker}</p><h3>${title}</h3>${when?`<p class="when">${when}</p>`:""}</div>`;
+}
+
+function showHito(i,scroll=true){
+  current = i; fichaOf = null;
+  const h = HITOS[i], p = PERIODS[h.p];
+  track.querySelectorAll(".node").forEach(n=>n.setAttribute("aria-current", +n.dataset.i===i ? "true":"false"));
+  track.querySelectorAll(".btn-ficha").forEach(b=>b.setAttribute("aria-pressed","false"));
+  const rows = KEYS.map(k=>rowHTML(k,h[k],!!h.aprDef)).join("");
+  detail.innerHTML = detailShell(p, `${p.nombre} · Hito ${i+1} de ${HITOS.length}`, em(h.t), h.f) +
+    (h.nota?`<p class="note">${h.nota}</p>`:"") +
+    `<div class="d-body"><div class="rows">${rows}</div></div>` +
+    `<div class="d-nav"><button class="btn" type="button" data-go="-1" ${(i===0||HITOS[i-1].p!==h.p)?"disabled":""}>← Hito anterior</button><button class="btn" type="button" data-back="${h.p}">Volver a la ficha de la etapa</button><button class="btn" type="button" data-go="1" ${(i===HITOS.length-1||HITOS[i+1].p!==h.p)?"disabled":""}>Hito siguiente →</button></div>`;
+  updateCtrl();
+  if(scroll){
+    const n = track.querySelector(`.node[data-i="${i}"]`);
+    const r = n.getBoundingClientRect(), s = scroller.getBoundingClientRect();
+    scroller.scrollTo({left: scroller.scrollLeft + (r.left - s.left) - s.width/2 + r.width/2, behavior:"smooth"});
+  }
+}
+
+function showFicha(pi,scroll=true){
+  const p = PERIODS[pi], f = p.ficha; fichaOf = pi;
+  track.querySelectorAll(".node").forEach(n=>n.setAttribute("aria-current","false"));
+  track.querySelectorAll(".btn-ficha").forEach(b=>b.setAttribute("aria-pressed", +b.dataset.ficha===pi?"true":"false"));
+  const rows = KEYS.map(k=>rowHTML(k,f[k],f.aprDef)).join("");
+  const hl = HITOS.map((h,i)=>({h,i})).filter(o=>o.h.p===pi);
+  const side = p.fichaImg ? `<aside class="d-side">${figHTML(p.fichaImg)}</aside>` : "";
+  detail.innerHTML = detailShell(p, "Ficha de la etapa", f.titulo, p.years) +
+    `<div class="d-body ${p.fichaImg?"withimg":""}"><div class="rows">${rows}</div>${side}</div>` +
+    `<div class="hl"><h4>Hitos de esta etapa</h4><div>${hl.map(o=>`<button class="btn hbtn" type="button" data-hito="${o.i}">${o.h.f}: ${em(o.h.t)}</button>`).join("")}</div></div>` +
+    `<div class="d-nav"><button class="btn" type="button" data-fichago="-1" ${pi===0?"disabled":""}>← Etapa anterior</button><button class="btn" type="button" data-fichago="1" ${pi===PERIODS.length-1?"disabled":""}>Etapa siguiente →</button></div>`;
+  updateCtrl();
+  const seg = track.querySelectorAll(".seg")[pi], sr = scroller.getBoundingClientRect(), gr = seg.getBoundingClientRect();
+  scroller.scrollTo({left: scroller.scrollLeft + (gr.left - sr.left) - 54, behavior:"smooth"});
+  if(scroll) detail.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function stageNow(){return fichaOf!==null ? fichaOf : HITOS[current].p;}
+function updateCtrl(){
+  const st = stageNow();
+  $("#prevBtn").disabled = st===0;
+  $("#nextBtn").disabled = st===PERIODS.length-1;
+  $("#posHint").textContent = `Etapa ${st+1} de ${PERIODS.length}` + (fichaOf===null ? ` · hito ${current+1} de ${HITOS.length}` : " · ficha de la etapa");
+}
+
+track.addEventListener("click",e=>{
+  const n = e.target.closest(".node"); if(n){showHito(+n.dataset.i);return;}
+  const b = e.target.closest(".btn-ficha"); if(b){showFicha(+b.dataset.ficha);}
+});
+detail.addEventListener("click",e=>{
+  const b = e.target.closest("[data-go]"); if(b){showHito(current+ +b.dataset.go);return;}
+  const bk = e.target.closest("[data-back]"); if(bk){showFicha(+bk.dataset.back);return;}
+  const hh = e.target.closest("[data-hito]"); if(hh){showHito(+hh.dataset.hito,true);detail.scrollIntoView({behavior:"smooth",block:"nearest"});return;}
+  const f = e.target.closest("[data-fichago]"); if(f){showFicha(fichaOf+ +f.dataset.fichago);}
+});
+$("#prevBtn").addEventListener("click",()=>showFicha(stageNow()-1,false));
+$("#nextBtn").addEventListener("click",()=>showFicha(stageNow()+1,false));
+$("#scrL").addEventListener("click",()=>scroller.scrollBy({left:-460}));
+$("#scrR").addEventListener("click",()=>scroller.scrollBy({left:460}));
+document.addEventListener("keydown",e=>{
+  if(e.target.closest("input,textarea,select")) return;
+  const el = document.activeElement;
+  const inTl = el && (el.closest && (el.closest("#tlScroll")||el.closest("#detalle")||el.closest(".tl-ctrl")));
+  if(!inTl) return;
+  if(e.key==="ArrowRight" && stageNow()<PERIODS.length-1){e.preventDefault();showFicha(stageNow()+1,false);}
+  if(e.key==="ArrowLeft" && stageNow()>0){e.preventDefault();showFicha(stageNow()-1,false);}
+});
+
+/* ========================================================================
+   COMPARAR POR CONCEPTO
+   ======================================================================== */
+let cmpKey = "edu";
+function drawTabs(){
+  $("#tabs").innerHTML = KEYS.map(k=>`<button type="button" class="tab" role="tab" data-k="${k}" aria-selected="${k===cmpKey}">${ico(k)}${LABEL[k]}</button>`).join("");
+}
+function drawCmp(){
+  $("#cmp").innerHTML = PERIODS.map(p=>`<div class="col" style="--c:${p.c};--bgc:${p.bgc}"><h3>${p.nombre}</h3><p class="years">${p.years}</p>${cmpKey==="apr"?badge(p.ficha.aprDef):""}<p>${em(p.ficha[cmpKey])}</p></div>`).join("");
+}
+$("#tabs").addEventListener("click",e=>{const b=e.target.closest(".tab"); if(!b)return; cmpKey=b.dataset.k; drawTabs(); drawCmp();});
+
+/* ========================================================================
+   REFERENCIAS, CRÉDITOS Y HERRAMIENTAS
+   ======================================================================== */
+$("#refList").innerHTML = REFS.map(r=>`<li>${r.a}<a href="${r.u}" target="_blank" rel="noopener">${r.u}</a>${r.extra||""}<span class="ap"><span class="pill">Aporta</span>${r.ap}</span></li>`).join("");
+$("#imgCredits").innerHTML = Object.values(IMG).map(i=>`<li>${i.cap} <a href="${i.url}" target="_blank" rel="noopener">${i.url}</a></li>`).join("");
+$("#tools").innerHTML = TOOLS.map(t=>`<li><strong>${t.t}.</strong> ${t.d}<span class="ap" style="display:block;font-size:.88rem;color:var(--muted);margin-top:3px">${t.a}<a href="${t.u}" target="_blank" rel="noopener">${t.u}</a></span></li>`).join("");
+
+/* Versión completa para imprimir / guardar como PDF */
+$("#printAll").innerHTML = "<h2>Línea de tiempo (versión completa)</h2>" + PERIODS.map((p,pi)=>
+  `<h3 class="pa-h" style="color:${p.c}">${p.nombre} · ${p.years}</h3>` +
+  `<div class="pa-item"><h4>${p.ficha.titulo}</h4>${KEYS.map(k=>`<p><strong>${LABEL[k]}.</strong> ${em(p.ficha[k])}</p>`).join("")}</div>` +
+  HITOS.map((h,i)=>({h,i})).filter(o=>o.h.p===pi).map(o=>`<div class="pa-item"><h4>Hito ${o.i+1}. ${o.h.f}: ${em(o.h.t)}</h4>${KEYS.filter(k=>o.h[k]).map(k=>`<p><strong>${LABEL[k]}.</strong> ${em(o.h[k])}</p>`).join("")}</div>`).join("")
+).join("");
+
+/* Inicio */
+buildTrack(); drawTabs(); drawCmp(); showFicha(0,false);
+</script>
+</body>
+</html>
